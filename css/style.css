@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+html,body{
+	margin:0;
+	padding:0;
+}
+
+body,input[type="submit"],input[type="file"],button,input,textarea{
+	font-family: "DM Serif Display", serif;
+  	font-weight: 400;
+  	font-style: normal;
+}
+
+form{
+	margin:1rem auto;
+	width:75%;
+}
+
+input,textarea,input[type='file']{
+	position:sticky;
+	left:50%;
+	margin:1rem auto;
+	padding:.5rem;
+	border:solid 1px black;
+	border-radius: 5px;
+	width:50%;
+	box-sizing: border-box;
+}
+
+input[type="submit"],button{
+	background-color: orange;
+	font-family: "DM Serif Display", serif;
+	width:25%;
+}
+
+header{
+	margin:0;
+	padding:0;
+	background-color: orange;
+}
+
+header h1{
+	margin:0;
+	padding:.5rem;
+	text-align: center;
+}

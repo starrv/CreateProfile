@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<script defer type="text/javascript" src="js/script.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>
+				Create your profile picture
+			</h1>
+		</header>
+		<form method="post" enctype="multipart/form-data" action="php/index.php">
+            <div>
+				<label for="fname">
+					Enter your first name:
+				</label>
+				<input type="text" id="fname" name="fname">
+			</div>
+
+            <div>
+				<label for="lname">
+					Enter your last name:
+				</label>
+				<input type="text" id="lname" name="lname">
+			</div>
+
+			<div>
+				<label for="cover">
+					Upload a cover photo:
+				</label>
+				<input type="file" id="cover" name="cover" accept="image/png, image/jpeg, image/gif, image/jpg">
+			</div>
+
+			<div>
+				<label for="selfie">Upload a selfie:</label>
+				<input type="file" id="selfie" name="selfie" capture="user" accept="image/*">
+			</div>
+
+			<div style="margin-bottom:150px;">
+				<label for="caption">
+					Caption:
+				</label>
+				<textarea id="caption" name="caption" cols="25" rows="5"></textarea>
+			</div>
+
+			<div>
+				<input type="submit" id="upload" name="upload" value="upload">
+			</div>
+		</form>
+	</body>
+</html>
