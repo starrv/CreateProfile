@@ -4,9 +4,31 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<link rel="shortcut icon" href="images/icon.png" type="image/png">
 		<script defer type="text/javascript" src="js/script.js"></script>
 	</head>
 	<body>
+		<?php
+			function logout(){
+				$cookie_options = array (
+					'expires' => time() -3600, 
+					'path' => '/', 
+					'domain' => 'localhost', 
+					'secure' => true,    
+					'httponly' => true,    
+					'samesite' => 'lax'
+					);
+				setcookie('user','',$cookie_options);
+				header('Location: /CreateProfile');
+			}
+			if(empty($_COOKIE['user'])){
+				header("Location: php/login.php");
+			}
+			if($_POST['logout']){
+				logout();
+			}
+			echo "<p class='logged-in-info'>You are logged in as: ".$_COOKIE['user']."</p>";
+		?>
 		<header>
 			<h1>
 				Create your profile picture
@@ -28,15 +50,15 @@
 			</div>
 
 			<div>
+				<label for="selfie">Upload a selfie:</label>
+				<input type="file" id="selfie" name="selfie" capture="user" accept="image/*">
+			</div>
+
+			<div>
 				<label for="cover">
 					Upload a cover photo:
 				</label>
 				<input type="file" id="cover" name="cover" accept="image/png, image/jpeg, image/gif, image/jpg">
-			</div>
-
-			<div>
-				<label for="selfie">Upload a selfie:</label>
-				<input type="file" id="selfie" name="selfie" capture="user" accept="image/*">
 			</div>
 
 			<div style="margin-bottom:150px;">
@@ -47,8 +69,14 @@
 			</div>
 
 			<div>
-				<input type="submit" id="upload" name="upload" value="upload">
+				<input type="submit" id="create" name="create" value="create">
 			</div>
+		</form>
+		<div id="viewProfilePicturesDiv">
+			<button id="viewProfilePictures" onclick="window.open('php/profile-pictures.php')">View Profile Pictures</button>
+		</div>
+		<form method="post">
+			<input type="submit" id="logout" name="logout" value="logout">
 		</form>
 	</body>
 </html>

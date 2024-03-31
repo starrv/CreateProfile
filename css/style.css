@@ -4,19 +4,25 @@ html,body{
 	margin:0;
 	padding:0;
 }
+canvas{
+	width:75%;
+	margin:1rem auto;
+}
 
 body,input[type="submit"],input[type="file"],button,input,textarea{
 	font-family: "DM Serif Display", serif;
   	font-weight: 400;
   	font-style: normal;
+	border-radius: 5px;
 }
 
-form{
+form, div#viewProfilePicturesDiv{
 	margin:1rem auto;
 	width:75%;
+	text-align: center;
 }
 
-input,textarea,input[type='file']{
+input,textarea,input[type='file'],#viewProfilePictures{
 	position:sticky;
 	left:50%;
 	margin:1rem auto;
@@ -43,4 +49,47 @@ header h1{
 	margin:0;
 	padding:.5rem;
 	text-align: center;
+}
+
+.error{
+	color:red;
+}
+
+.success{
+	color:green;
+}
+
+form .error{
+	text-align: center;
+}
+
+#signup,#login{
+	text-align: center;
+	margin:1rem auto;
+	display: block;
+}
+
+.logged-in-info{
+	animation: toggle 1s infinite;
+	margin:1rem;
+}
+
+#viewProfilePictures{
+	margin:1rem auto;
+	display: block;
+	width:25%;
+}
+
+#profilePicturesDisplay{
+	margin:1rem auto;
+	width:25%;
+}
+
+@keyframes toggle{
+	to{
+		color:white;
+	}
+	from{
+		color:black;
+	}
 }
