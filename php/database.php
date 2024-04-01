@@ -121,6 +121,7 @@
                     if(!$result)
                     {
                         echo $GLOBALS['conn']->error;
+                        echo 'mysql error';
                         return false;
                     }
                     else
@@ -131,11 +132,13 @@
                         }
                         else
                         {
+                            echo 'no pictures added';
                             return false;
                         }
                     }
                 }
                 catch(mysqli_sql_exception){
+                    echo 'mysql exception';
                    return false;
                 }
                 finally{
@@ -143,6 +146,7 @@
                 }
             }
             else{
+                echo 'no such user';
                 return false;
             }	
         }

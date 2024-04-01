@@ -46,13 +46,13 @@
                                         ctx.drawImage(cover,0,0,500,500);
                                         const selfie=new Image();
                                         selfie.onload=()=>{
-                                            ctx.drawImage(selfie,125,0,250,500);
+                                            ctx.drawImage(selfie,125,125,250,250);
                                             ctx.font='bold italic 18px serif';
                                             ctx.textBaseline='middle';
                                             ctx.fillStyle='#ffffff';
-                                            ctx.fillRect(125,440,250,20);
+                                            ctx.fillRect(125,340,250,20);
                                             ctx.fillStyle='#000000';
-                                            ctx.fillText('".$row['fname']." ".$row['lname']." - ".$row['caption']."',150,450);
+                                            ctx.fillText('".$row['fname']." ".$row['lname']." - ".$row['caption']."',150,350);
                                         };
                                         selfie.src='data:image/jpeg;base64,".base64_encode( $row['selfie'] )."';
                                         selfie.style.borderRadius='200px';

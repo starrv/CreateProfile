@@ -34,7 +34,7 @@
 				Create your profile picture
 			</h1>
 		</header>
-		<form method="post" enctype="multipart/form-data" action="php/index.php">
+		<form id="createProfilePictureForm" method="post" enctype="multipart/form-data" action="php/index.php">
             <div>
 				<label for="fname">
 					Enter your first name:
@@ -61,11 +61,11 @@
 				<input type="file" id="cover" name="cover" accept="image/png, image/jpeg, image/gif, image/jpg">
 			</div>
 
-			<div style="margin-bottom:150px;">
+			<div>
 				<label for="caption">
 					Caption:
 				</label>
-				<textarea id="caption" name="caption" cols="25" rows="5"></textarea>
+				<input type="text" id="caption" name="caption">
 			</div>
 
 			<div>
