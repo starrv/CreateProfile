@@ -73,7 +73,7 @@
                     }
                 }
                 echo "<div>
-                <button onclick=window.open('/CreateProfile');>Home</button>
+                <button id='home' onclick=window.open('/CreateProfile');>Home</button>
             </div>";
             ?>
         </div>

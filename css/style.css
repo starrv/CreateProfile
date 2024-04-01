@@ -19,7 +19,6 @@ body,input[type="submit"],input[type="file"],button,input,textarea{
 form, div#viewProfilePicturesDiv{
 	margin:1rem auto;
 	width:75%;
-	text-align: center;
 }
 
 input,textarea,input[type='file'],#viewProfilePictures{
@@ -91,5 +90,11 @@ form .error{
 	}
 	from{
 		color:black;
+	}
+}
+
+@media screen and (max-width: 650px){
+	#home{
+		width:75%;
 	}
 }
