@@ -17,7 +17,7 @@
                 require_once 'database.php';
 
                 if(empty($_COOKIE['user'])){
-                    header("Location: php/login.php");
+                    header("Location: /CreateProfile/php/login.php");
                 }
 
                 echo "<p class='logged-in-info'>You are logged in as: ".$_COOKIE['user']."</p>";
