@@ -58,7 +58,7 @@ header h1{
 	color:green;
 }
 
-form .error{
+form .error, form .success{
 	text-align: center;
 }
 

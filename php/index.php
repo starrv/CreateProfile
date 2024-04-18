@@ -44,7 +44,7 @@
 												ctx.drawImage(cover,0,0,500,500);
 												const selfie=new Image();
 												selfie.onload=()=>{
-													ctx.drawImage(selfie,125,125,250,250);
+													ctx.drawImage(selfie,125,0,250,500);
 													ctx.font='bold italic 18px serif';
 													ctx.textBaseline='middle';
 													ctx.fillStyle='#ffffff';

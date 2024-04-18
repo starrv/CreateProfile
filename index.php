@@ -8,7 +8,40 @@
 		<script defer type="text/javascript" src="js/script.js"></script>
 	</head>
 	<body>
-		<?php
+		<?php	
+
+			//report errors
+			ini_set('display_errors', 1);
+			ini_set('display_startup_errors', 1);
+			error_reporting(E_ALL);
+		  
+
+			$path=@parse_url($_SERVER['REQUEST_URI'])['path'];
+			var_dump($path);
+			switch ($path) {
+				case '/':
+					require_once 'index.php';
+					break;
+				case '/CreateProfile':
+					require_once 'index.php';
+					break;
+				case '/CreateProfile/':
+					require_once 'index.php';
+					break;
+				case '/php/login.php':
+					require_once 'php/login.php';
+					break;
+				case '/php/profile-pictures.php':
+					require_once 'php/profile-pictures.php';
+					break;
+				case '/php/signup.php':
+					require_once 'php/signup.php';
+					break;
+				default:
+					http_response_code(404);
+					exit('Not Found');
+			}
+
 			function logout(){
 				$cookie_options = array (
 					'expires' => time() -3600, 
@@ -21,10 +54,11 @@
 				setcookie('user','',$cookie_options);
 				header('Location: /CreateProfile');
 			}
+
 			if(empty($_COOKIE['user'])){
 				header("Location: php/login.php");
 			}
-			if($_POST['logout']){
+			if(!empty($_POST['logout'])){
 				logout();
 			}
 			echo "<p class='logged-in-info'>You are logged in as: ".$_COOKIE['user']."</p>";

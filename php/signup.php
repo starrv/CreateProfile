@@ -17,8 +17,8 @@
             <?php
                require_once 'database.php';
 
-                if($_POST){
-                    if($_POST['username'] && $_POST['password'] && $_POST['confirmPassword']){
+                if(!empty($_POST)){
+                    if(!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['confirmPassword'])){
                         $result=signup($_POST['username'],$_POST['password'],$_POST['confirmPassword']);
                         switch($result){
                             case 4 : 

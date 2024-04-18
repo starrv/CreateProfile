@@ -17,8 +17,8 @@
             <?php
                 require_once 'database.php';
 
-                if($_POST){
-                    if($_POST['username'] && $_POST['password']){
+                if(!empty($_POST)){
+                    if(!empty($_POST['username']) && !empty($_POST['password'])){
                         $result=login($_POST['username'],$_POST['password']);
                         switch($result){
                             case 3:

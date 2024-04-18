@@ -44,7 +44,7 @@
                         $stmt = $GLOBALS['conn']->prepare($query);
                         $stmt->bind_param('ss',$username, $password_hash); 
                         $stmt->execute();
-                        return 0;
+                        return 4;
                     }
                     catch(mysqli_sql_exception ){
                         return 2;
