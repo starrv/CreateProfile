@@ -1,10 +1,12 @@
 <?php
+
     //report errors
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    require_once 'data.php';
+
+    require_once 'data-prod.php';
 
     function connect($servername, $usernameDB,$passwordDB)
         {
@@ -27,6 +29,34 @@
             $sql="SET time_zone = '+00:00'";
             $GLOBALS['conn']->query($sql);
         }
+
+        function createTableUsers(){
+           $sql="create table if not exists users(
+            id bigint(20) primary key auto_increment,
+            username varchar(255) not null unique,
+            password varchar(255) not null
+           );";
+           $result = $GLOBALS['conn']->query($sql);
+           if($result) return true;
+           return false;
+        }
+
+        function createTablePictures(){
+            $sql="Create table if not exists pictures(
+                id bigint(20) primary key auto_increment,
+                fname varchar(255) not null,
+                lname varchar(255) not null,
+                caption varchar(255) not null,
+                selfie longblob not null,
+                cover longblob not null,
+                user_id bigint(20) not null,
+                foreign key(user_id) references users(id)
+            );";
+            $result = $GLOBALS['conn']->query($sql);
+            if($result) return true;
+            return false;
+        }
+
         //return codes: 4 is success, 1 is passwords do not match, 2 is username is already on file, 3 is something went wrong
         function signUp($username,$password,$confirmPassword){
             global $db_host;
@@ -40,6 +70,8 @@
                 if($result){
                     try{
                         useDB('profiles');
+                        createTableUsers();
+                        createTablePictures();
                         $query="Insert into users(username,password) values(?,?);";
                         $stmt = $GLOBALS['conn']->prepare($query);
                         $stmt->bind_param('ss',$username, $password_hash); 
@@ -71,6 +103,8 @@
             $result=connect($db_host,$db_username,$db_password);
             if($result){
                 useDB('profiles');
+                createTableUsers();
+                createTablePictures();
                 $query="Select username, password from users where username=?;";
                 $stmt = $GLOBALS['conn']->prepare($query);
                 $stmt->bind_param('s',$username); 
@@ -103,6 +137,8 @@
 
             connect($db_host,$db_username,$db_password);
             useDB("profiles");
+            createTableUsers();
+            createTablePictures();
             $result = $GLOBALS['conn']->query("select id FROM users where username='$user'");
             if($result->num_rows>0){
                 $row=$result->fetch_assoc();
@@ -158,6 +194,8 @@
 
             connect($db_host,$db_username,$db_password);
             useDB("profiles");
+            createTableUsers();
+            createTablePictures();
             $result = $GLOBALS['conn']->query("select id FROM users where username='$user'");
             if($result->num_rows>0){
                 $row=$result->fetch_assoc();

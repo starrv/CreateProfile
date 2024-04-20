@@ -31,7 +31,7 @@
                                     'samesite' => 'lax'
                                     );
                                 setcookie('user',$_POST['username'],$cookie_options);
-                                header('Location: /CreateProfile');
+                                header('Location: /');
                                 break;
                             case 1:
                                 echo "<p class='error'>The username/password combination is not on file";
@@ -58,6 +58,6 @@
                 <input type="submit" id="submit" name="submit">
             </div>
         </form>
-        <a href="signup.php" id="signup">Sign Up</a>
+        <a href="/signup" id="signup">Sign Up</a>
     </body>
 </html>

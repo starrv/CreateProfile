@@ -56,6 +56,6 @@
                 <input type="submit" id="submit" name="submit">
             </div>
         </form>
-        <a href="login.php" id="login">Login</a>
+        <a href="/login" id="login">Login</a>
     </body>
 </html>

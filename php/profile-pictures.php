@@ -1,3 +1,9 @@
+<?php
+     if(empty($_COOKIE['user'])){
+        header("Location: /login");
+        exit;
+    }
+?>
 <!doctype html>
 <html>
 	<head>
@@ -15,10 +21,6 @@
 		</header>
             <?php
                 require_once 'database.php';
-
-                if(empty($_COOKIE['user'])){
-                    header("Location: /CreateProfile/php/login.php");
-                }
 
                 echo "<p class='logged-in-info'>You are logged in as: ".$_COOKIE['user']."</p>";
                 echo '<div id="profilePicturesDisplay">';
@@ -73,7 +75,7 @@
                     }
                 }
                 echo "<div>
-                <button id='home' onclick=window.open('/CreateProfile');>Home</button>
+                <button id='home' onclick=window.open('/');>Home</button>
             </div>";
             ?>
         </div>

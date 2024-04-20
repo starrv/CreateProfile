@@ -12,6 +12,8 @@ function createProfilePicture(e){
         const p=document.createElement("p");
         p.textContent="Please enter your first name, last name, caption, cover photo, and selfie to create your profile picture.";
         p.classList.add('error');
+        const error=e.target.querySelector(".error");
+        if(error)error.remove();
         e.target.prepend(p);
     }
     const maxLength=15;
