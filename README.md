@@ -1,3 +1,3 @@
-# CreateProfilePicture
+# CreateProfile
 
-Create a profile picture for yourself.
+Create profile pictures for yourself.  Note that due to the cost of web hosting, the web application may not be available.
