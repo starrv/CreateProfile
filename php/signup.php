@@ -25,10 +25,10 @@
                                 echo "<p class='success'>Account created</p>";
                                 break;
                             case 1:
-                                echo "<p class='error'>Passwords do not match</p>";
+                                echo "<p class='error'>The passwords do not match</p>";
                                 break;
                             case 2:
-                                echo "<p class='error'>Username is already on file.  If you have forgotten your password, please contact IT Support.</p>";
+                                echo "<p class='error'>The username is already on file.  If you have forgotten your password, please contact IT Support.</p>";
                                 break;
                             case 3:
                                 echo "<p class='error'>Something went wrong</p>";

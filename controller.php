@@ -7,6 +7,9 @@
         case '/login':
             require_once 'php/login.php';
             break;
+        case '/add-picture':
+            require_once 'php/add-picture.php';
+            break;
         case '/profile-pictures':
             require_once 'php/profile-pictures.php';
             break;

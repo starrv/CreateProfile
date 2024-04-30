@@ -50,16 +50,16 @@ header h1{
 	text-align: center;
 }
 
+.error,.success{
+	text-align: center;
+}
+
 .error{
 	color:red;
 }
 
 .success{
 	color:green;
-}
-
-form .error, form .success{
-	text-align: center;
 }
 
 #signup,#login{
